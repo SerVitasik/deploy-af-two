@@ -70,7 +70,7 @@ jobs:
       - name: Terraform build
         run: |
           cd deploy
-          terraform init -reconfigure
+          terraform init
           # example of unlocking tf state if needed
           # terraform force-unlock fb397548-8697-ea93-ab80-128a4f508fdf --force
           terraform plan -out=tfplan 
