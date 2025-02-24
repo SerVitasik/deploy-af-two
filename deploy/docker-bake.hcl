@@ -3,13 +3,13 @@ variable "REGISTRY_BASE" {
 }
 
 group "default" {
-  targets = ["deploy-af-two"]
+  targets = ["myadmin"]
 }
 
-target "deploy-af-two" {
+target "myadmin" {
   context = ".."
-  tags = ["${REGISTRY_BASE}/deploy-af-two:latest"]
-  cache-from = ["type=registry,ref=${REGISTRY_BASE}/deploy-af-two:cache"]
-  cache-to   = ["type=registry,ref=${REGISTRY_BASE}/deploy-af-two:cache,mode=max,compression=zstd"]
+  tags = ["${REGISTRY_BASE}/myadmin:latest"]
+  cache-from = ["type=registry,ref=${REGISTRY_BASE}/myadmin:cache"]
+  cache-to   = ["type=registry,ref=${REGISTRY_BASE}/myadmin:cache,mode=max,compression=zstd"]
   push = true
 }
