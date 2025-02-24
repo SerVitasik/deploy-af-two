@@ -1,4 +1,3 @@
-
 services:
   traefik:
     image: "traefik:v2.5"
@@ -11,19 +10,19 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
-  myadmin:
-    image: localhost:5000/myadmin:latest
+  deploy-af-two:
+    image: localhost:5000/deploy-af-two:latest
     pull_policy: always
     restart: always
     env_file:
       - .env.live
     volumes:
-      - myadmin-db:/code/db
+      - deploy-af-two-db:/code/db
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.myadmin.rule=PathPrefix(`/`)"
-      - "traefik.http.services.myadmin.loadbalancer.server.port=3500"
-      - "traefik.http.routers.myadmin.priority=2"
+      - "traefik.http.routers.deploy-af-two.rule=PathPrefix(`/`)"
+      - "traefik.http.services.deploy-af-two.loadbalancer.server.port=3500"
+      - "traefik.http.routers.deploy-af-two.priority=2"
 
 volumes:
-  myadmin-db:
+  deploy-af-two-db:
