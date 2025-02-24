@@ -1,6 +1,6 @@
 
 locals {
-  app_name = "myadmin"
+  app_name = "deploy-af-two"
   aws_region = "us-east-1"
 }
 
@@ -322,7 +322,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state" 
 # Configure the backend to use the S3 bucket
 terraform {
  backend "s3" {
-   bucket         = "myadmin-terraform-state"
+   bucket         = "deploy-af-two-terraform-state"
    key            = "state.tfstate"  # Define a specific path for the state file
    region         = "us-east-1"
    profile        = "myaws"
