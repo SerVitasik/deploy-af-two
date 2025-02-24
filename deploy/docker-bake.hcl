@@ -3,7 +3,7 @@ variable "REGISTRY_BASE" {
 }
 
 group "default" {
-  target = "deploy-af-two"
+  targets = ["deploy-af-two"]
 }
 
 target "deploy-af-two" {
